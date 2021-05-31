@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LineCalc - Help</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        code {
+            font-size: large;
+        }
+
+        table {
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border-bottom: 1px solid gray;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>LineCalc - Help</h1>
+    <a href="./lineCalcHelp_IT.html">Versione italiana</a>
+    <h2>About</h2>
+    <p>LineCalc 0.2 (beta) - compiled with Java 14</p>
+    <p>LineCalc is a simple, command-line calculator. It features a basic variable management system and recognizes
+        several mathematical functions. It is intended for quick, back-of-the-envelope calculations and for aid in
+        classroom problems.</p>
+    <p>It is designed as a standalone Java application.</p>
+    <h2>How to use</h2>
+    <p>Just type the mathematical expression you want to evaluate in the command line (the text field at the top) and
+        press Enter. The result will be displayed in the field just below the command line.</p>
+    <p>There is a wide range of supported functions beyond the basic operations. The full list can be found below.</p>
+    <p>Multiplications must be explicitly stated with <code>*</code> : inserting a space between
+        numbers/variables/constants will get an error.</p>
+    <p>Complex numbers are supported; they have to be input as a sum of the real and imaginary parts and using the
+        built-in constant <code>I</code> (e.g. <code>2+3*I</code>)</p>
+    <p>Function arguments must be enclosed in parentheses <code>()</code> and separated by commas <code>,</code> .
+        Function names start with a lowercase letter.</p>
+    <h3>Variable management</h3>
+    <p>
+        The app can manage variables. The current variable list is displayed in the table below the three buttons.
+        <b>Note:</b> There are a few built-in constants (like &#960 or <i>e</i>), not displayed in the variable list.
+        Variables and constants can be used inside an expression.
+    <ul>
+        <li>
+            The "+" button creates a variable with the current value of the expression (if no expression has been
+            evaluated, the button does nothing). A popup window will ask for the variable name. The name must follow
+            some rules:
+            <ul>
+                <li>Be unique. The name cannot be the same as another variable, nor one of the built-in constants.</li>
+                <li>Start with an upper-case letter.</li>
+                <li>Contain only letters (upper- or lower-case), digits (0-9) or underscores ( _ ).</li>
+            </ul>
+        </li>
+        <li>
+            The "-" button deletes the selected variable from the list (if no variable is selected, the button does
+            nothing). A deleted variable cannot be used anymore in an expression.
+        </li>
+        <li>
+            The "&downarrow;" button assigns the current value of the expression to the selected variable, substituting
+            its previous value (if no variable is selected, the button does nothing).
+        </li>
+    </ul>
+    </p>
+    <h2>Constants</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>I</code></td>
+                <td>&Sqrt;(-1) = i</td>
+                <td>Imaginary unit</td>
+            </tr>
+            <tr>
+                <td><code>E</code></td>
+                <td>2.718281828459045</td>
+                <td>Base of natural logarithms</td>
+            </tr>
+            <tr>
+                <td><code>PI</code></td>
+                <td>3.141592653589793</td>
+                <td>Ratio of a circle's circumference to its diameter</td>
+            </tr>
+            <tr>
+                <td><code>TAU</code></td>
+                <td>2 &pi; = 6.283185307179586</td>
+                <td>Ratio of a circle's circumference to its radius</td>
+            </tr>
+            <tr>
+                <td><code>DEG</code></td>
+                <td>&pi;/180 = 0.017453292519943295</td>
+                <td>Conversion factor from radians to degrees</td>
+            </tr>
+            <tr>
+                <td><code>GRAD</code></td>
+                <td>&pi;/200 = 0.015707963267948967</td>
+                <td>Conversion factor from radians to gradians (1/100th of right angle)</td>
+            </tr>
+            <tr>
+                <td><code>PHI</code></td>
+                <td>(1+&Sqrt;5) / 2 = 1.618033988749895</td>
+                <td>Golden ratio (positive solution of x<sup>2</sup> = x + 1)</td>
+            </tr>
+            <tr>
+                <td><code>GAMMA_EM</code></td>
+                <td>0.5772156649015329</td>
+                <td>Euler-Mascheroni constant</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Operators</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>+</code></td>
+                <td>Addition</td>
+            </tr>
+            <tr>
+                <td><code>-</code></td>
+                <td>Subtraction</td>
+            </tr>
+            <tr>
+                <td><code>*</code></td>
+                <td>Multiplication</td>
+            </tr>
+            <tr>
+                <td><code>/</code></td>
+                <td>Division</td>
+            </tr>
+            <tr>
+                <td><code>\</code></td>
+                <td>Integer division</td>
+            </tr>
+            <tr>
+                <td><code>%</code></td>
+                <td>Modulo (remainder of integer division)</td>
+            </tr>
+            <tr>
+                <td><code>^</code></td>
+                <td>Power</td>
+            </tr>
+            <tr>
+                <td><code>-</code> (unary)</td>
+                <td>Negative (invert sign)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Functions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Syntax</th>
+                <th>Argument(s)</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>sum(x1, x2, ...)</code></td>
+                <td>all complex</td>
+                <td>Sum of the arguments</td>
+            </tr>
+            <tr>
+                <td><code>sum_sq(x1, x2, ...)</code></td>
+                <td>all complex</td>
+                <td>Sum of the squares of the arguments</td>
+            </tr>
+            <tr>
+                <td><code>prod(x1, x2, ...)</code></td>
+                <td>all complex</td>
+                <td>Product of the arguments</td>
+            </tr>
+            <tr>
+                <td><code>mean(x1, x2, ...)</code></td>
+                <td>all complex</td>
+                <td>Arithmetic mean of the arguments</td>
+            </tr>
+            <tr>
+                <td><code>geom_mean(x1, x2, ...)</code></td>
+                <td>all complex</td>
+                <td>Geometric mean of the arguments</td>
+            </tr>
+            <tr>
+                <td><code>max(x1, x2, ...)</code></td>
+                <td>all real</td>
+                <td>Maximum element</td>
+            </tr>
+            <tr>
+                <td><code>min(x1, x2, ...)</code></td>
+                <td>all real</td>
+                <td>Minimum element</td>
+            </tr>
+            <tr>
+                <td><code>median(x1, x2, ...)</code></td>
+                <td>all real</td>
+                <td>Median (central) element</td>
+            </tr>
+            <tr>
+                <td><code>gcd(x1, x2, ...)</code></td>
+                <td>all integer</td>
+                <td>Greatest common divisor</td>
+            </tr>
+            <tr>
+                <td><code>lcm(x1, x2, ...)</code></td>
+                <td>all integer</td>
+                <td>Least common multiple</td>
+            </tr>
+            <tr>
+                <td><code>sqrt(x)</code></td>
+                <td>complex</td>
+                <td>Square root</td>
+            </tr>
+            <tr>
+                <td><code>exp(x)</code></td>
+                <td>complex</td>
+                <td>Exponential (e<sup>x</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>ln(x)</code></td>
+                <td>complex</td>
+                <td>Natural logarithm (principal value)</td>
+            </tr>
+            <tr>
+                <td><code>log(x)</code></td>
+                <td>complex</td>
+                <td>Base-10 logarithm (principal value)</td>
+            </tr>
+            <tr>
+                <td><code>abs(x)</code></td>
+                <td>complex</td>
+                <td>Absolute value (or norm for complex numbers)</td>
+            </tr>
+            <tr>
+                <td><code>arg(x)</code></td>
+                <td>complex</td>
+                <td>Argument of complex number</td>
+            </tr>
+            <tr>
+                <td><code>conj(x)</code></td>
+                <td>complex</td>
+                <td>Conjugate of complex number</td>
+            </tr>
+            <tr>
+                <td><code>sign(x)</code></td>
+                <td>complex</td>
+                <td>Sign of real number; for complex number, returns the number normalized (= z/|z|)</td>
+            </tr>
+            <tr>
+                <td><code>floor(x)</code></td>
+                <td>complex</td>
+                <td>Rounds down to nearest (Gaussian) integer towards -&infin;</td>
+            </tr>
+            <tr>
+                <td><code>ceil(x)</code></td>
+                <td>complex</td>
+                <td>Rounds up to nearest (Gaussian) integer towards +&infin;</td>
+            </tr>
+            <tr>
+                <td><code>round(x)</code></td>
+                <td>complex</td>
+                <td>Rounds to nearest (Gaussian) integer</td>
+            </tr>
+            <tr>
+                <td><code>sin(x)</code></td>
+                <td>complex</td>
+                <td>Sine</td>
+            </tr>
+            <tr>
+                <td><code>cos(x)</code></td>
+                <td>complex</td>
+                <td>Cosine</td>
+            </tr>
+            <tr>
+                <td><code>tan(x)</code></td>
+                <td>complex</td>
+                <td>Tangent</td>
+            </tr>
+            <tr>
+                <td><code>cot(x)</code></td>
+                <td>complex</td>
+                <td>Cotangent</td>
+            </tr>
+            <tr>
+                <td><code>sec(x)</code></td>
+                <td>complex</td>
+                <td>Secant</td>
+            </tr>
+            <tr>
+                <td><code>csc(x)</code></td>
+                <td>complex</td>
+                <td>Cosecant</td>
+            </tr>
+            <tr>
+                <td><code>arcsin(x)</code></td>
+                <td>complex</td>
+                <td>Inverse sine</td>
+            </tr>
+            <tr>
+                <td><code>arccos(x)</code></td>
+                <td>complex</td>
+                <td>Inverse cosine</td>
+            </tr>
+            <tr>
+                <td><code>arctan(x)</code></td>
+                <td>complex</td>
+                <td>Inverse tangent</td>
+            </tr>
+            <tr>
+                <td><code>arccot(x)</code></td>
+                <td>complex</td>
+                <td>Inverse cotangent</td>
+            </tr>
+            <tr>
+                <td><code>arcsec(x)</code></td>
+                <td>complex</td>
+                <td>Inverse secant</td>
+            </tr>
+            <tr>
+                <td><code>arccsc(x)</code></td>
+                <td>complex</td>
+                <td>Inverse cosecant</td>
+            </tr>
+            <tr>
+                <td><code>sinh(x)</code></td>
+                <td>complex</td>
+                <td>Hyperbolic sine</td>
+            </tr>
+            <tr>
+                <td><code>cosh(x)</code></td>
+                <td>complex</td>
+                <td>Hyperbolic cosine</td>
+            </tr>
+            <tr>
+                <td><code>tanh(x)</code></td>
+                <td>complex</td>
+                <td>Hyperbolic tangent</td>
+            </tr>
+            <tr>
+                <td><code>coth(x)</code></td>
+                <td>complex</td>
+                <td>Hyperbolic cotangent</td>
+            </tr>
+            <tr>
+                <td><code>sech(x)</code></td>
+                <td>complex</td>
+                <td>Hyperbolic secant</td>
+            </tr>
+            <tr>
+                <td><code>csch(x)</code></td>
+                <td>complex</td>
+                <td>Hyperbolic cosecant</td>
+            </tr>
+            <tr>
+                <td><code>arsinh(x)</code></td>
+                <td>complex</td>
+                <td>Inverse hyperbolic sine</td>
+            </tr>
+            <tr>
+                <td><code>arcosh(x)</code></td>
+                <td>complex</td>
+                <td>Inverse hyperbolic cosine</td>
+            </tr>
+            <tr>
+                <td><code>artanh(x)</code></td>
+                <td>complex</td>
+                <td>Inverse hyperbolic tangent</td>
+            </tr>
+            <tr>
+                <td><code>arcoth(x)</code></td>
+                <td>complex</td>
+                <td>Inverse hyperbolic cotangent</td>
+            </tr>
+            <tr>
+                <td><code>arsech(x)</code></td>
+                <td>complex</td>
+                <td>Inverse hyperbolic secant</td>
+            </tr>
+            <tr>
+                <td><code>arcsch(x)</code></td>
+                <td>complex</td>
+                <td>Inverse hyperbolic cosecant</td>
+            </tr>
+            <tr>
+                <td><code>fact(n)</code></td>
+                <td>integer</td>
+                <td>Factorial</td>
+            </tr>
+            <tr>
+                <td><code>dfact(n)</code></td>
+                <td>integer</td>
+                <td>Double factorial (product of previous integers with same parity as <i>n</i>)</td>
+            </tr>
+            <tr>
+                <td><code>binom(n, k)</code></td>
+                <td>integer, integer</td>
+                <td>Binomial coefficient (<i>n</i> choose <i>k</i>)</td>
+            </tr>
+            <tr>
+                <td><code>rnd(a, b)</code></td>
+                <td>complex, complex</td>
+                <td>Random number uniformly distributed between a (included) and b (not included).<br>With complex
+                    parameters, real and imaginary parts are generated separately between the respective parts of the
+                    boundaries.<br>If a is omitted, it is assumed = 0.<br>If b is also omitted, it is assumed = 1.</td>
+            </tr>
+            <tr>
+                <td><code>rndint(a, b)</code></td>
+                <td>real, real</td>
+                <td>Random integer uniformly distributed between a (included if integer) and b (not included). Imaginary
+                    parts ignored.<br>If a is omitted, it is assumed = 0.<br>If b is also omitted, it is assumed = 1.
+                </td>
+            </tr>
+            <tr>
+                <td><code>gamma(x)</code></td>
+                <td>real</td>
+                <td>Gamma function for real argument (approximated)</td>
+            </tr>
+            <tr>
+                <td><code>lambertW0(x)</code></td>
+                <td>real</td>
+                <td>Principal branch of Lambert W function (inverse of x e<sup>x</sup>) for real argument (approximated)
+                </td>
+            </tr>
+            <tr>
+                <td><code>lambertW1(x)</code></td>
+                <td>real</td>
+                <td>Secondary (-1) branch of Lambert W function for real argument (approximated)</td>
+            </tr>
+            <tr>
+                <td><code>erf(x)</code></td>
+                <td>real</td>
+                <td>Error function (normalized primitive of e <sup>-x<sup>2</sup></sup>)</td>
+            </tr>
+            <tr>
+                <td><code>logistic(x, k)</code></td>
+                <td>real</td>
+                <td>Logistic function, 1/(1-e<sup>-kx</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>ell_int1(x, k)</code></td>
+                <td>real</td>
+                <td>Incomplete elliptic integral of the 1st kind (with parameter k)</td>
+            </tr>
+            <tr>
+                <td><code>ell_int2(x, k)</code></td>
+                <td>real</td>
+                <td>Incomplete elliptic integral of the 2nd kind (with parameter k)</td>
+            </tr>
+            <tr>
+                <td><code>ell_int3(x, n, k)</code></td>
+                <td>real</td>
+                <td>Incomplete elliptic integral of the 3rd kind (with parameters n and k)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

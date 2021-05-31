@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LineCalc - Aiuto</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        code {
+            font-size: large;
+        }
+
+        table {
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border-bottom: 1px solid gray;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>LineCalc - Aiuto</h1>
+    <a href="./lineCalcHelp_EN.html">English version</a>
+    <h2>Informazioni</h2>
+    <p>LineCalc 0.2 (beta) - compilato con Java 14</p>
+    <p>LineCalc è una semplice calcolatrice a riga di comando. Include un sistema basico di gestione delle variabili e riconosce numerose funzioni matematiche. Il programma è pensato per calcoli veloci e come ausilio nei problemi scolastici.</p>
+    <p>&Egrave; progettato come applicazione Java indipendente.</p>
+    <h2>Come si usa</h2>
+    <p>Basta digitare l'espressione matematica che si vuole calcolare nella riga di comando (il campo testuale in alto) e premere Invio. Il risultato è visibile nel campo subito sotto alla riga di comando.</p>
+    <p>Il programma supporta un'ampia gamma di funzioni oltre alle operazioni di base. L'elenco completo è riportato sotto.</p>
+    <p>Le moltiplicazioni devono essere scritte esplicitamente con <code>*</code> : inserendo uno spazio fra due numeri/variabili/costanti darà un errore.</p>
+    <p>I numeri complessi sono supportati; vanno inseriti come somma della parte reale e immaginaria, usando la costante predefinita <code>I</code> (ad es. <code>2+3*I</code>)</p>
+    <p>Gli argomenti delle funzioni vanno racchiusi fra parentesi tonde <code>()</code> e separati fra loro da virgole <code>,</code> . I nomi delle funzioni iniziano con una lettera minuscola.</p>
+    <h3>Gestione delle variabili</h3>
+    <p>
+        Il programma può gestire le variabili. L'attuale lista di variabili è visualizzata nella tabella sotto i tre pulsanti.
+        <b>Nota:</b> ci sono anche alcune costanti predefinite (like &pi; or <i>e</i>), che però non sono indicate nella lista.
+        Variabili e costanti possono essere inserite in un'espressione.
+    <ul>
+        <li>
+            Il pulsante "+" crea una variable inizializzata col valore attuale dell'espressione (se nessuna espressione è ancora stata calcolata, il pulsante non fa nulla). Comparirà una finestra popup per inserire il nome della variabile. Il nome deve seguire alcune regole:
+            <ul>
+                <li>Dev'essere univoco. Non può appartenere già ad un'altra variabile, né ad una costante predefinita.</li>
+                <li>Deve iniziare con una lettera maiuscola.</li>
+                <li>Deve contenere solo lettere (maiuscole o minuscole), cifre (0-9) o trattini bassi ( _ ).</li>
+            </ul>
+        </li>
+        <li>
+            Il pulsante "-" elimina la variabile selezionata dall'elenco (se nessuna variabile è selezionata, il pulsante non fa nulla). Una variabile eliminata non può più essere usata in un'espressione.
+        </li>
+        <li>
+            Il pulsante "&downarrow;" assegna il valore attuale dell'espressione alla variabile selezionata, sostituendolo al valore precedente (se nessuna variabile è selezionata, il pulsante non fa nulla).
+        </li>
+    </ul>
+    </p>
+    <h2>Costanti</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Valore</th>
+                <th>Descrizione</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>I</code></td>
+                <td>&Sqrt;(-1) = i</td>
+                <td>Unità imaginaria</td>
+            </tr>
+            <tr>
+                <td><code>E</code></td>
+                <td>2.718281828459045</td>
+                <td>Base dei logaritmi naturali</td>
+            </tr>
+            <tr>
+                <td><code>PI</code></td>
+                <td>3.141592653589793</td>
+                <td>Rapporto fra la circonferenza di un cerchio e il suo diametro</td>
+            </tr>
+            <tr>
+                <td><code>TAU</code></td>
+                <td>2 &pi; = 6.283185307179586</td>
+                <td>Rapporto fra la circonferenza di un cerchio e il suo raggio</td>
+            </tr>
+            <tr>
+                <td><code>DEG</code></td>
+                <td>&pi;/180 = 0.017453292519943295</td>
+                <td>Fattore di conversione da radianti a gradi</td>
+            </tr>
+            <tr>
+                <td><code>GRAD</code></td>
+                <td>&pi;/200 = 0.015707963267948967</td>
+                <td>Fattore di conversione da radianti a gradi centesimali (1/100esimo di angolo retto)</td>
+            </tr>
+            <tr>
+                <td><code>PHI</code></td>
+                <td>(1+&Sqrt;5) / 2 = 1.618033988749895</td>
+                <td>Rapporto aureo (soluzione positiva di x<sup>2</sup> = x + 1)</td>
+            </tr>
+            <tr>
+                <td><code>GAMMA_EM</code></td>
+                <td>0.5772156649015329</td>
+                <td>Constante di Eulero-Mascheroni</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Operatori</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Simbolo</th>
+                <th>Descrizione</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>+</code></td>
+                <td>Addizione</td>
+            </tr>
+            <tr>
+                <td><code>-</code></td>
+                <td>Sottrazione</td>
+            </tr>
+            <tr>
+                <td><code>*</code></td>
+                <td>Moltiplicazione</td>
+            </tr>
+            <tr>
+                <td><code>/</code></td>
+                <td>Divisione</td>
+            </tr>
+            <tr>
+                <td><code>\</code></td>
+                <td>Divisione intera</td>
+            </tr>
+            <tr>
+                <td><code>%</code></td>
+                <td>Modulo (resto della divisione intera)</td>
+            </tr>
+            <tr>
+                <td><code>^</code></td>
+                <td>Potenza</td>
+            </tr>
+            <tr>
+                <td><code>-</code> (unario)</td>
+                <td>Negativo (inverti segno)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Funzioni</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sintassi</th>
+                <th>Argomento/i</th>
+                <th>Descrizione</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>sum(x1, x2, ...)</code></td>
+                <td>tutti complessi</td>
+                <td>Somma degli argomenti</td>
+            </tr>
+            <tr>
+                <td><code>sum_sq(x1, x2, ...)</code></td>
+                <td>tutti complessi</td>
+                <td>Somma dei quadrati degli argomenti</td>
+            </tr>
+            <tr>
+                <td><code>prod(x1, x2, ...)</code></td>
+                <td>tutti complessi</td>
+                <td>Prodotto degli argomenti</td>
+            </tr>
+            <tr>
+                <td><code>mean(x1, x2, ...)</code></td>
+                <td>tutti complessi</td>
+                <td>Media aritmetica degli argomenti</td>
+            </tr>
+            <tr>
+                <td><code>geom_mean(x1, x2, ...)</code></td>
+                <td>tutti complessi</td>
+                <td>Media geometrica degli argomenti</td>
+            </tr>
+            <tr>
+                <td><code>max(x1, x2, ...)</code></td>
+                <td>tutti reali</td>
+                <td>Elemento massimo</td>
+            </tr>
+            <tr>
+                <td><code>min(x1, x2, ...)</code></td>
+                <td>tutti reali</td>
+                <td>Elemento minimo</td>
+            </tr>
+            <tr>
+                <td><code>median(x1, x2, ...)</code></td>
+                <td>tutti reali</td>
+                <td>Mediana (elemento centrale)</td>
+            </tr>
+            <tr>
+                <td><code>gcd(x1, x2, ...)</code></td>
+                <td>tutti interi</td>
+                <td>Massimo comune divisore</td>
+            </tr>
+            <tr>
+                <td><code>lcm(x1, x2, ...)</code></td>
+                <td>tutti interi</td>
+                <td>Minimo comune multiplo</td>
+            </tr>
+            <tr>
+                <td><code>sqrt(x)</code></td>
+                <td>complesso</td>
+                <td>Radice quadrata</td>
+            </tr>
+            <tr>
+                <td><code>exp(x)</code></td>
+                <td>complesso</td>
+                <td>Exponenziale (e<sup>x</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>ln(x)</code></td>
+                <td>complesso</td>
+                <td>Logaritmo naturale (valore principale)</td>
+            </tr>
+            <tr>
+                <td><code>log(x)</code></td>
+                <td>complesso</td>
+                <td>Logaritmo in base 10 (valore principale)</td>
+            </tr>
+            <tr>
+                <td><code>abs(x)</code></td>
+                <td>complesso</td>
+                <td>Valore assoluto (o norma se il numero è complesso)</td>
+            </tr>
+            <tr>
+                <td><code>arg(x)</code></td>
+                <td>complesso</td>
+                <td>Argomento (angolo) di un numero complesso</td>
+            </tr>
+            <tr>
+                <td><code>conj(x)</code></td>
+                <td>complesso</td>
+                <td>Coniugato di un numero complesso</td>
+            </tr>
+            <tr>
+                <td><code>sign(x)</code></td>
+                <td>complesso</td>
+                <td>Segno di un numero reale; per un numero complesso, restituisce il numero normazillato (= z/|z|)</td>
+            </tr>
+            <tr>
+                <td><code>floor(x)</code></td>
+                <td>complesso</td>
+                <td>Arrotonda all'intero (Gaussiano) inferiore, verso -&infin;</td>
+            </tr>
+            <tr>
+                <td><code>ceil(x)</code></td>
+                <td>complesso</td>
+                <td>Arrotonda all'intero (Gaussiano) superiore, verso +&infin;</td>
+            </tr>
+            <tr>
+                <td><code>round(x)</code></td>
+                <td>complesso</td>
+                <td>Arrotonda all'intero (Gaussiano) più vicino</td>
+            </tr>
+            <tr>
+                <td><code>sin(x)</code></td>
+                <td>complesso</td>
+                <td>Seno</td>
+            </tr>
+            <tr>
+                <td><code>cos(x)</code></td>
+                <td>complesso</td>
+                <td>Coseno</td>
+            </tr>
+            <tr>
+                <td><code>tan(x)</code></td>
+                <td>complesso</td>
+                <td>Tangente</td>
+            </tr>
+            <tr>
+                <td><code>cot(x)</code></td>
+                <td>complesso</td>
+                <td>Cotangente</td>
+            </tr>
+            <tr>
+                <td><code>sec(x)</code></td>
+                <td>complesso</td>
+                <td>Secante</td>
+            </tr>
+            <tr>
+                <td><code>csc(x)</code></td>
+                <td>complesso</td>
+                <td>Cosecante</td>
+            </tr>
+            <tr>
+                <td><code>arcsin(x)</code></td>
+                <td>complesso</td>
+                <td>Arcoseno</td>
+            </tr>
+            <tr>
+                <td><code>arccos(x)</code></td>
+                <td>complesso</td>
+                <td>Arcocoseno</td>
+            </tr>
+            <tr>
+                <td><code>arctan(x)</code></td>
+                <td>complesso</td>
+                <td>Arcotangente</td>
+            </tr>
+            <tr>
+                <td><code>arccot(x)</code></td>
+                <td>complesso</td>
+                <td>Arcocotangente</td>
+            </tr>
+            <tr>
+                <td><code>arcsec(x)</code></td>
+                <td>complesso</td>
+                <td>Arcosecante</td>
+            </tr>
+            <tr>
+                <td><code>arccsc(x)</code></td>
+                <td>complesso</td>
+                <td>Arcocosecante</td>
+            </tr>
+            <tr>
+                <td><code>sinh(x)</code></td>
+                <td>complesso</td>
+                <td>Seno iperbolico</td>
+            </tr>
+            <tr>
+                <td><code>cosh(x)</code></td>
+                <td>complesso</td>
+                <td>Coseno iperbolico</td>
+            </tr>
+            <tr>
+                <td><code>tanh(x)</code></td>
+                <td>complesso</td>
+                <td>Tangente iperbolica</td>
+            </tr>
+            <tr>
+                <td><code>coth(x)</code></td>
+                <td>complesso</td>
+                <td>Cotangente iperbolica</td>
+            </tr>
+            <tr>
+                <td><code>sech(x)</code></td>
+                <td>complesso</td>
+                <td>Secante iperbolica</td>
+            </tr>
+            <tr>
+                <td><code>csch(x)</code></td>
+                <td>complesso</td>
+                <td>Cosecante iperbolica</td>
+            </tr>
+            <tr>
+                <td><code>arsinh(x)</code></td>
+                <td>complesso</td>
+                <td>Seno iperbolico inverso</td>
+            </tr>
+            <tr>
+                <td><code>arcosh(x)</code></td>
+                <td>complesso</td>
+                <td>Coseno iperbolico inverso</td>
+            </tr>
+            <tr>
+                <td><code>artanh(x)</code></td>
+                <td>complesso</td>
+                <td>Tangente iperbolica inversa</td>
+            </tr>
+            <tr>
+                <td><code>arcoth(x)</code></td>
+                <td>complesso</td>
+                <td>Cotangente iperbolica inversa</td>
+            </tr>
+            <tr>
+                <td><code>arsech(x)</code></td>
+                <td>complesso</td>
+                <td>Secante iperbolica inversa</td>
+            </tr>
+            <tr>
+                <td><code>arcsch(x)</code></td>
+                <td>complesso</td>
+                <td>Cosecante iperbolica inversa</td>
+            </tr>
+            <tr>
+                <td><code>fact(n)</code></td>
+                <td>intero</td>
+                <td>Fattoriale</td>
+            </tr>
+            <tr>
+                <td><code>dfact(n)</code></td>
+                <td>intero</td>
+                <td>Fattoriale doppio (prodotto degli interi precedenti aventi la stessa parità di <i>n</i>)</td>
+            </tr>
+            <tr>
+                <td><code>binom(n, k)</code></td>
+                <td>intero, intero</td>
+                <td>Coefficiente binomiale (<i>n</i> choose <i>k</i>)</td>
+            </tr>
+            <tr>
+                <td><code>rnd(a, b)</code></td>
+                <td>complesso, complesso</td>
+                <td>Numero casuale uniformemente distribuito fra a (incluso) and b (escluso).<br>Con parametri complessi, le parti reale e immaginaria sono generate indipendentemente fra le rispettive parti degli argomenti.<br>Se a è omesso, si assume = 0.<br>Se anche b è omesso, si assume = 1.</td>
+            </tr>
+            <tr>
+                <td><code>rndint(a, b)</code></td>
+                <td>reale, reale</td>
+                <td>Intero casuale uniformemente distribuito fra a (incluso se intero) e b (escluso). Si ignorano le parti immaginarie.<br>Se a è omesso, si assume = 0.<br>Se anche b è omesso, si assume = 1.</td>
+            </tr>
+            <tr>
+                <td><code>gamma(x)</code></td>
+                <td>reale</td>
+                <td>Funzione Gamma con argomento reale (approssimata)</td>
+            </tr>
+            <tr>
+                <td><code>lambertW0(x)</code></td>
+                <td>reale</td>
+                <td>Ramo principale della funzione W di Lambert (inversa di x e<sup>x</sup>) con argomento reale (approssimata)
+                </td>
+            </tr>
+            <tr>
+                <td><code>lambertW1(x)</code></td>
+                <td>reale</td>
+                <td>Ramo secondario (-1) della funzione W di Lambert con argomento reale (approssimata)</td>
+            </tr>
+            <tr>
+                <td><code>erf(x)</code></td>
+                <td>reale</td>
+                <td>Funzione degli errori  (primitiva normalizzata di e <sup>-x<sup>2</sup></sup>)</td>
+            </tr>
+            <tr>
+                <td><code>logistic(x, k)</code></td>
+                <td>reale</td>
+                <td>Funzione Logistica, 1/(1-e<sup>-kx</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>ell_int1(x, k)</code></td>
+                <td>reale</td>
+                <td>Integrale ellittico incompleto del 1° tipo (con parametro k)</td>
+            </tr>
+            <tr>
+                <td><code>ell_int2(x, k)</code></td>
+                <td>reale</td>
+                <td>Integrale ellittico incompleto del 2° tipo (con parametro k)</td>
+            </tr>
+            <tr>
+                <td><code>ell_int3(x, n, k)</code></td>
+                <td>reale</td>
+                <td>Integrale ellittico incompleto del 3° tipo (con parametri n and k)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
