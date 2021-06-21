@@ -5,20 +5,22 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.function.Function;
-import java.awt.BorderLayout;
+//import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+//import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.net.URL;
+import java.net.URI;
+//import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JEditorPane;
+//import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -35,7 +37,7 @@ import javax.swing.WindowConstants;
 public class LineCalc {
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 2841541638162570861L;
-	public static String versionNumber = "0.2.1 (beta)";
+	public static String versionNumber = "0.2.2 (beta)";
 	public static String path = System.getProperty("user.dir") + "/lineCalc";
 	public static String helpTxt = "LineCalc " + versionNumber + "\nCompiled with / Compilato con: Java 14\n\n"
 			+ "(EN) LineCalc is a simple, command-line calculator. It features a basic\n"
@@ -89,9 +91,9 @@ public class LineCalc {
 		}
 
 		txt_expr = new JTextField();
-		txt_expr.setBackground(Color.black);
-		txt_expr.setForeground(Color.white);
-		txt_expr.setCaretColor(Color.white);
+		txt_expr.setBackground(Color.white);
+		txt_expr.setForeground(Color.black);
+		txt_expr.setCaretColor(Color.black);
 		txt_expr.getMargin().set(5, 5, 5, 5);
 		txt_expr.setFont(font);
 		txt_expr.setPreferredSize(new Dimension(600, 40));
@@ -102,11 +104,11 @@ public class LineCalc {
 					expr = txt_expr.getText();
 					try {
 						value = eval(expr);
-						res = value.toString();
-						txt_res.setForeground(new Color(150, 255, 200));
+						res = value==null ? "" : value.toString();
+						txt_res.setForeground(new Color(20, 20, 100));
 						txt_res.setText(res);
 					} catch (Exception e1) {
-						txt_res.setForeground(new Color(255, 0, 100));
+						txt_res.setForeground(new Color(255, 0, 0));
 						txt_res.setText(e1.getLocalizedMessage());
 					} finally {
 						frame.repaint();
@@ -120,10 +122,10 @@ public class LineCalc {
 		lbl_res.setForeground(new Color(230, 255, 200));
 		txt_res = new JTextArea();
 		txt_res.setLineWrap(true);
-		txt_res.setBackground(Color.black);
-		txt_res.setForeground(new Color(200, 255, 230));
+		txt_res.setBackground(Color.white);
+		txt_res.setForeground(Color.black);
 		txt_res.setFont(font);
-		txt_res.setPreferredSize(new Dimension(480, 30));
+		txt_res.setPreferredSize(new Dimension(480, 40));
 		txt_res.setEditable(false);
 
 		tm = new VarTableModel();
@@ -148,8 +150,8 @@ public class LineCalc {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// aggiunge una variabile col valore corrente
-				String x = txt_res.getText();
-				if (value != null && !x.isEmpty()) {
+				String txt = txt_res.getText();
+				if (value != null && !txt.isEmpty()) {
 					String newName = JOptionPane.showInputDialog("Nome della variabile:");
 					while (!isValidName(newName)) {
 						newName = JOptionPane
@@ -193,10 +195,10 @@ public class LineCalc {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// sostituisce il valore della variabile selezionata col risultato corrente
-				int r = tbl_var.getSelectedRow();
-				String x = txt_res.getText();
-				if (r >= 0 && value != null && !x.isEmpty()) {
-					tm.setValueAt(value, r, 1);
+				int row = tbl_var.getSelectedRow();
+				String txt = txt_res.getText();
+				if (row >= 0 && value != null && !txt.isEmpty()) {
+					tm.setValueAt(value, row, 1);
 				}
 				frame.repaint();
 			}
@@ -208,24 +210,13 @@ public class LineCalc {
 		} catch (Exception e1) {
 			btn_help.setIcon(new ImageIcon(path + "/helpBtn.png"));
 		}
-		btn_help.setToolTipText("Aiuto");
+		btn_help.setToolTipText("Aiuto (si apre nel browser)");
 		btn_help.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					// Desktop.getDesktop().browse(LineCalc.class.getResource("/lineCalcHelp_IT.html").toURI());
-					URL h = getClass().getResource("/lineCalcHelp_IT.html");
-					JFrame hw = new JFrame("LineCalc - Help");
-					hw.setSize(520, 540);
-					hw.setLayout(new FlowLayout());
-					hw.setLocationRelativeTo(null);
-					JEditorPane hp = new JEditorPane();
-					hp.setEditable(false);
-					hp.setPage(h);
-					JScrollPane hs = new JScrollPane(hp);
-					hs.setPreferredSize(new Dimension(500, 500));
-					hw.getContentPane().add(hs, BorderLayout.CENTER);
-					hw.setVisible(true);
+					URI h = getClass().getResource("/lineCalcHelp_IT.html").toURI();
+					Desktop.getDesktop().browse(h);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 					JOptionPane.showMessageDialog(frame, e1.getLocalizedMessage(), "LineCalc - Error",
@@ -237,6 +228,7 @@ public class LineCalc {
 		JButton btn_launchPrimeFactorDialog = new JButton("Fattorizza...");
 		btn_launchPrimeFactorDialog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				@SuppressWarnings("unused")
 				PrimeFactorDialog d = new PrimeFactorDialog();
 			}
 		});
@@ -257,8 +249,8 @@ public class LineCalc {
 		layout.putConstraint(SpringLayout.BASELINE, txt_res, 0, SpringLayout.BASELINE, lbl_res);
 		layout.putConstraint(SpringLayout.WEST, txt_res, 10, SpringLayout.EAST, lbl_res);
 
-		layout.putConstraint(SpringLayout.NORTH, btn_addVar, 20, SpringLayout.SOUTH, lbl_res);
-		layout.putConstraint(SpringLayout.WEST, btn_addVar, 10, SpringLayout.WEST, lbl_res);
+		layout.putConstraint(SpringLayout.NORTH, btn_addVar, 20, SpringLayout.SOUTH, txt_res);
+		layout.putConstraint(SpringLayout.WEST, btn_addVar, 30, SpringLayout.WEST, frame);
 		layout.putConstraint(SpringLayout.NORTH, btn_removeVar, 0, SpringLayout.NORTH, btn_addVar);
 		layout.putConstraint(SpringLayout.WEST, btn_removeVar, 20, SpringLayout.EAST, btn_addVar);
 		layout.putConstraint(SpringLayout.NORTH, btn_assignVar, 0, SpringLayout.NORTH, btn_removeVar);
@@ -289,14 +281,45 @@ public class LineCalc {
 	 */
 	private static HashMap<String, Cplx> createConstMap() {
 		HashMap<String, Cplx> map = new HashMap<String, Cplx>();
-		map.put("I", Cplx.I);
-		map.put("E", new Cplx(Math.E));
-		map.put("PI", new Cplx(Math.PI));
-		map.put("TAU", new Cplx(2 * Math.PI));
-		map.put("DEG", new Cplx(Math.PI / 180.0));
-		map.put("GRAD", new Cplx(Math.PI / 200.0));
-		map.put("PHI", new Cplx(0.5 * (Math.sqrt(5) + 1))); // rapporto aureo
-		map.put("GAMMA_EM", new Cplx(0.57721566490153286)); // costante di Eulero-Mascheroni
+		map.put("i", Cplx.I);
+		map.put("e", new Cplx(Math.E));
+		map.put("pi", new Cplx(Math.PI));
+		map.put("tau", new Cplx(2 * Math.PI));
+		map.put("deg", new Cplx(Math.PI / 180.0));
+		map.put("grad", new Cplx(Math.PI / 200.0));
+		map.put("phi", new Cplx(0.5 * (Math.sqrt(5) + 1))); // rapporto aureo
+		map.put("gamma_EM", new Cplx(0.57721566490153286)); // costante di Eulero-Mascheroni
+		map.put("G", new Cplx(6.67428e-11)); // Costante gravitazionale (m^3/(kg*s^2))
+		map.put("c_L", new Cplx(2.99792458e8)); // Velocità della luce (m/s)
+		map.put("mu0", new Cplx(4e-7*Math.PI)); // Permeabilità magnetica del vuoto (N/A^2)
+		map.put("eps0", new Cplx(1.0/(4e-7*Math.PI*Math.pow(2.99792458e8,2)))); // Permittività elettrica del vuoto (F/m)
+		map.put("eV", new Cplx(1.602176487e-19)); // Elettronvolt (J) (= carica elettrone in C)
+		map.put("h", new Cplx(6.62606896e-34)); // Costante di Planck (J*s)
+		map.put("hbar", new Cplx(6.62606896e-34*0.5/Math.PI)); // Costante ridotta di Planck (J*s)
+		map.put("k_B", new Cplx(1.3806504e-23)); // Costante di Boltzmann (J/K)
+		map.put("sigma_SB", new Cplx(5.670400e-8)); // Costante di Stefan-Boltzmann (W/(m^2*K^4))
+		map.put("a_rad", new Cplx(7.565767e-16)); // Costante radiativa (J/(m^3*K^4))
+		map.put("m_e", new Cplx(9.10938215e-31)); // Massa elettrone (kg)
+		map.put("m_H", new Cplx(1.673532499e-27)); // Massa atomo idrogeno (kg)
+		map.put("N_A", new Cplx(6.02214179e23)); // Numero di Avogadro (1/mol)
+		map.put("R_gas", new Cplx(8.314472)); // Costante dei gas (J/(mol*K))
+		map.put("a0_inf", new Cplx(5.2917720859e-11)); // Raggio Bohr (m)
+		map.put("Ry_inf", new Cplx(1.0973731568527e7)); // Costante di Rydberg (1/m)
+		map.put("M_S", new Cplx(1.9891e30)); // Massa solare (kg)
+		map.put("L_S", new Cplx(3.839e26)); // Luminosità solare (W)
+		map.put("R_S", new Cplx(6.95508e8)); // Raggio solare (m)
+		map.put("S_S", new Cplx(1365)); // Costante di irraggiamento solare (W/m^2)
+		map.put("Teff_S", new Cplx(5777)); // Temperatura efficace solare (K)
+		map.put("M_T", new Cplx(5.9736e24)); // Massa Terra (kg)
+		map.put("R_T", new Cplx(6.378136e6)); // Raggio Terra (m)
+		map.put("AU", new Cplx(1.4959787066e11)); // Unità astronomica (m)
+		map.put("ly", new Cplx(9.460730472e15)); // Anno(giuliano)-luce (m)
+		map.put("pc", new Cplx(3.0856776e16)); // Parsec (m)
+		map.put("day", new Cplx(86400)); // Giorno solare (s)
+		map.put("yr_tr", new Cplx(86400*365.2421897)); // Anno tropico (s)
+		map.put("yr_sid", new Cplx(86400*365.256308)); // Anno siderale (s)
+		map.put("yr_J", new Cplx(86400*365.25)); // Anno giuliano (s)
+		map.put("yr_Gr", new Cplx(86400*365.2425)); // Anno gregoriano (s)
 		return map;
 	}
 
@@ -352,7 +375,11 @@ public class LineCalc {
 		map.put("floor", (ArrayList<Cplx> x) -> x.get(0).floor());
 		/** (EN) Ceiling (toward +inf) (IT) Intero superiore (verso +inf) */
 		map.put("ceil", (ArrayList<Cplx> x) -> x.get(0).ceil());
-		/** (EN) Round to nearest integer (IT) Arrotonda all'intero più vicino */
+		/** (EN) Round toward 0 (IT) Arrotonda verso 0 */
+		map.put("int_sup", (ArrayList<Cplx> x) -> x.get(0).int_sup());
+		/** (EN) Round away from 0 (IT) Arrotonda allontanandosi da 0 */
+		map.put("int_inf", (ArrayList<Cplx> x) -> x.get(0).int_inf());
+		/** (EN) Round to nearest integer (0.5 to +inf) (IT) Arrotonda all'intero più vicino (0.5 verso +inf) */
 		map.put("round", (ArrayList<Cplx> x) -> x.get(0).round());
 
 		// (EN) Trigonometric/hyperbolic functions (principal values)
@@ -515,17 +542,17 @@ public class LineCalc {
 	public static boolean isValidName(String name) {
 		/**
 		 * (EN) Check if the given string is a valid variable name: 1) must contain only
-		 * letters, digits or underscore; 2) must start with an uppercase letter; 3)
+		 * letters, digits or underscore; 2) must start with a letter; 3)
 		 * cannot be already assigned
 		 * 
 		 * (IT) Controlla se la stringa data è un nome valido per le variabili: 1) deve
-		 * contenere solo lettere, cifre o trattini bassi 2) deve iniziare con una
-		 * lettera maiuscola 3) non deve essere già assegnato
+		 * contenere solo lettere, cifre o trattini bassi; 2) deve iniziare con una
+		 * lettera; 3) non deve essere già assegnato
 		 */
 		if (name == null || name.isBlank()) {
 			return false;
 		}
-		if (name.charAt(0) < 'A' || name.charAt(0) > 'Z') {
+		if (!((name.charAt(0) >= 'a' && name.charAt(0) <= 'z') || (name.charAt(0) >= 'A' && name.charAt(0) <= 'Z'))) {
 			return false;
 		}
 		for (int i = 1; i < name.length(); i++) {

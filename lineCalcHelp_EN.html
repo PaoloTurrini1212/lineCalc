@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
@@ -24,6 +24,7 @@
         td {
             padding: 5px;
             border-bottom: 1px solid gray;
+            border-left: 1px solid gray;
             text-align: left;
         }
     </style>
@@ -32,100 +33,42 @@
 <body>
     <h1>LineCalc - Help</h1>
     <a href="./lineCalcHelp_IT.html">Versione italiana</a>
-    <h2>About</h2>
+    <h2>Info</h2>
     <p>LineCalc 0.2 (beta) - compiled with Java 14</p>
-    <p>LineCalc is a simple, command-line calculator. It features a basic variable management system and recognizes
-        several mathematical functions. It is intended for quick, back-of-the-envelope calculations and for aid in
-        classroom problems.</p>
-    <p>It is designed as a standalone Java application.</p>
+    <p>LineCalc is a simple, command-line calculator. It features a basic variable management system and recognizes several mathematical functions. It is intended for quick, back-of-the-envelope calculations and for aid in classroom problems.</p>
+    <p>It is designed as a stand-alone Java application.</p>
     <h2>How to use</h2>
-    <p>Just type the mathematical expression you want to evaluate in the command line (the text field at the top) and
-        press Enter. The result will be displayed in the field just below the command line.</p>
-    <p>There is a wide range of supported functions beyond the basic operations. The full list can be found below.</p>
-    <p>Multiplications must be explicitly stated with <code>*</code> : inserting a space between
-        numbers/variables/constants will get an error.</p>
-    <p>Complex numbers are supported; they have to be input as a sum of the real and imaginary parts and using the
-        built-in constant <code>I</code> (e.g. <code>2+3*I</code>)</p>
-    <p>Function arguments must be enclosed in parentheses <code>()</code> and separated by commas <code>,</code> .
-        Function names start with a lowercase letter.</p>
+    <p> Just type the math expression you want to evaluate into the command line (the text field at the top of the window) and hit Enter. The result will appear in the text field just below the command line.</p>
+    <p> The program supports a wide range of functions besides the basic operations. The complete list is given below.</p>
+    <p> Multiplications must be entered explicitly with <code>*</code> : inserting a blank space between two numbers/variables/constants will result in an error message.</p>
+    <p>Complex numbers are supported; they have to be entered as the sum of their real and imaginary part, using the built-in constant <code>i</code> (e.g. <code>2+3*i</code>).</p>
+    <p>Function arguments must be surrounded by round brackets <code>()</code> and separated by commas <code>,</code> .</p>
     <h3>Variable management</h3>
     <p>
-        The app can manage variables. The current variable list is displayed in the table below the three buttons.
-        <b>Note:</b> There are a few built-in constants (like &#960 or <i>e</i>), not displayed in the variable list.
-        Variables and constants can be used inside an expression.
+        The app can manage user-defined variables. The current list of variables is shown in the table below the three buttons.
+        <b>Note:</b> built-in constants (like &pi; or <i>e</i>) are not shown in the app window, but are listed in this help page. Both variables and constants may be used in an expression.
     <ul>
-        <li>
-            The "+" button creates a variable with the current value of the expression (if no expression has been
-            evaluated, the button does nothing). A popup window will ask for the variable name. The name must follow
-            some rules:
+        <li> <img src="addVarBtn.png" alt="(+)">
+            Creates a variable and initializes it with the current value of the expression (if no expression has been evaluated yet, the button does nothing). A popup window will appear allowing to choose the variable name. The name must follow a few rules:
             <ul>
-                <li>Be unique. The name cannot be the same as another variable, nor one of the built-in constants.</li>
-                <li>Start with an upper-case letter.</li>
-                <li>Contain only letters (upper- or lower-case), digits (0-9) or underscores ( _ ).</li>
+                <li>It must be unique. It cannot be already assigned to another variable or a built-in constant.</li>
+                <li>It must start with a letter (upper- or lowercase).</li>
+                <li>It must contain only letters (upper- or lowercase), digits (0-9) or underscores ( _ ).</li>
             </ul>
         </li>
-        <li>
-            The "-" button deletes the selected variable from the list (if no variable is selected, the button does
-            nothing). A deleted variable cannot be used anymore in an expression.
+        <li> <img src="removeVarBtn.png" alt="(-)">
+            Deletes the selected variable from the list (if no variable is selected, the button does nothing). A deleted variable can no longer be used in an expression.
         </li>
-        <li>
-            The "&downarrow;" button assigns the current value of the expression to the selected variable, substituting
-            its previous value (if no variable is selected, the button does nothing).
+        <li> <img src="assignVarBtn.png" alt="(&downarrow;)">
+            Assigns the current value of the expression to the selected variable, overriding the previous value (if no variable is selected, the button does nothing).
         </li>
     </ul>
     </p>
-    <h2>Constants</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Value</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code>I</code></td>
-                <td>&Sqrt;(-1) = i</td>
-                <td>Imaginary unit</td>
-            </tr>
-            <tr>
-                <td><code>E</code></td>
-                <td>2.718281828459045</td>
-                <td>Base of natural logarithms</td>
-            </tr>
-            <tr>
-                <td><code>PI</code></td>
-                <td>3.141592653589793</td>
-                <td>Ratio of a circle's circumference to its diameter</td>
-            </tr>
-            <tr>
-                <td><code>TAU</code></td>
-                <td>2 &pi; = 6.283185307179586</td>
-                <td>Ratio of a circle's circumference to its radius</td>
-            </tr>
-            <tr>
-                <td><code>DEG</code></td>
-                <td>&pi;/180 = 0.017453292519943295</td>
-                <td>Conversion factor from radians to degrees</td>
-            </tr>
-            <tr>
-                <td><code>GRAD</code></td>
-                <td>&pi;/200 = 0.015707963267948967</td>
-                <td>Conversion factor from radians to gradians (1/100th of right angle)</td>
-            </tr>
-            <tr>
-                <td><code>PHI</code></td>
-                <td>(1+&Sqrt;5) / 2 = 1.618033988749895</td>
-                <td>Golden ratio (positive solution of x<sup>2</sup> = x + 1)</td>
-            </tr>
-            <tr>
-                <td><code>GAMMA_EM</code></td>
-                <td>0.5772156649015329</td>
-                <td>Euler-Mascheroni constant</td>
-            </tr>
-        </tbody>
-    </table>
+
+    <h2>Factorization</h2>
+    <p>
+        The Factorize button ("Fattorizza") opens a popup window; entering a positive whole number and then pressing the Calculate button (or typing Enter) will show the prime factor decomposition of the number, indicating each factor's multiplicity. Close the window to go back to the main window.
+    </p>
 
     <h2>Operators</h2>
     <table>
@@ -158,7 +101,7 @@
             </tr>
             <tr>
                 <td><code>%</code></td>
-                <td>Modulo (remainder of integer division)</td>
+                <td>Modulo (remainder of the integer division)</td>
             </tr>
             <tr>
                 <td><code>^</code></td>
@@ -166,7 +109,220 @@
             </tr>
             <tr>
                 <td><code>-</code> (unary)</td>
-                <td>Negative (invert sign)</td>
+                <td>Negative (change sign)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Constants</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>i</code></td>
+                <td>&Sqrt;(-1) = i</td>
+                <td>Imaginary unit</td>
+            </tr>
+            <tr>
+                <td><code>e</code></td>
+                <td>2.718281828459045</td>
+                <td>Base of natural logarithms</td>
+            </tr>
+            <tr>
+                <td><code>pi</code></td>
+                <td>&pi; = 3.141592653589793</td>
+                <td>Ratio between a circumference and its diameter</td>
+            </tr>
+            <tr>
+                <td><code>tau</code></td>
+                <td>&tau; = 2 &pi; = 6.283185307179586</td>
+                <td>Ratio between a circumference and its radius</td>
+            </tr>
+            <tr>
+                <td><code>deg</code></td>
+                <td>&pi;/180 = 0.017453292519943295</td>
+                <td>Conversion from radians to degrees</td>
+            </tr>
+            <tr>
+                <td><code>grad</code></td>
+                <td>&pi;/200 = 0.015707963267948967</td>
+                <td>Conversion from radians to gradians (1/100th of a right angle)</td>
+            </tr>
+            <tr>
+                <td><code>phi</code></td>
+                <td>&phi; = (1+&Sqrt;5) / 2 = 1.618033988749895</td>
+                <td>Golden ratio (positive solution of x<sup>2</sup> = x + 1)</td>
+            </tr>
+            <tr>
+                <td><code>gamma_EM</code></td>
+                <td>0.5772156649015329</td>
+                <td>Euler-Mascheroni constant</td>
+            </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
+            <tr>
+                <td><code>G</code></td>
+                <td>6.67428 &centerdot; 10<sup>-11</sup></td>
+                <td>Gravitational constant, in m<sup>3</sup>/(kg s<sup>2</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>c_L</code></td>
+                <td>2.99792458 &centerdot; 10<sup>8</sup></td>
+                <td>Speed of light in a vacuum, in m/s</td>
+            </tr>
+            <tr>
+                <td><code>mu0</code></td>
+                <td>&mu;<sub>0</sub> = 4&pi; &centerdot; 10<sup>-7</sup> = 1.2566370614359173 &centerdot; 10<sup>-6</sup></td>
+                <td>Magnetic permeability of free space, in N/A<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td><code>eps0</code></td>
+                <td>&varepsilon;<sub>0</sub> = 1/(&mu;<sub>0</sub>c<sup>2</sup>) = 8.854187817620389 &centerdot; 10<sup>-12</sup></td>
+                <td>Electric permittivity of free space, in F/m</td>
+            </tr>
+            <tr>
+                <td><code>eV</code></td>
+                <td>1.602176487 &centerdot; 10<sup>-19</sup></td>
+                <td>Electronvolt (in J); corresponds to the electron's charge (in C)</td>
+            </tr>
+            <tr>
+                <td><code>h</code></td>
+                <td>6.62606896 &centerdot; 10<sup>-34</sup></td>
+                <td>Planck constant, in J s</td>
+            </tr>
+            <tr>
+                <td><code>hbar</code></td>
+                <td>&hbar; = h/(2 &pi;) = 1.054571628251774 &centerdot; 10<sup>-34</sup></td>
+                <td>Reduced Planck's constant, in J s</td>
+            </tr>
+            <tr>
+                <td><code>k_B</code></td>
+                <td>1.3806504 &centerdot; 10<sup>-23</sup></td>
+                <td>Boltzmann's constant, in J/K</td>
+            </tr>
+            <tr>
+                <td><code>sigma_SB</code></td>
+                <td>&sigma; = 2 &pi;<sup>5</sup>k<sup>4</sup>/(15 c<sup>2</sup>h<sup>3</sup>) = 5.670400 &centerdot; 10<sup>-8</sup></td>
+                <td>Stefan-Boltzmann constant, in W/(m<sup>2</sup> K<sup>4</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>a_rad</code></td>
+                <td>a = 4&sigma;/c = 7.565767 &centerdot; 10<sup>-16</sup></td>
+                <td>Radiation constant, in J/(m<sup>3</sup> K<sup>4</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>m_e</code></td>
+                <td>9.10938215 &centerdot; 10<sup>-31</sup></td>
+                <td>Electron mass, in kg</td>
+            </tr>
+            <tr>
+                <td><code>m_H</code></td>
+                <td>1.673532499 &centerdot; 10<sup>-27</sup></td>
+                <td>Hydrogen mass, in kg</td>
+            </tr>
+            <tr>
+                <td><code>N_A</code></td>
+                <td>6.02214179 &centerdot; 10<sup>23</sup></td>
+                <td>Avogadro number</td>
+            </tr>
+            <tr>
+                <td><code>R_gas</code></td>
+                <td>N<sub>A</sub> k = 8.314472</td>
+                <td>Ideal gas constant, in J/(mol K)</td>
+            </tr>
+            <tr>
+                <td><code>a0_inf</code></td>
+                <td>a<sub>0,&infin;</sub> = 4&pi;&varepsilon;<sub>0</sub>&hbar;<sup>2</sup>/(m<sub>e</sub>e<sup>2</sup>) = 5.2917720859 &centerdot; 10<sup>-11</sup></td>
+                <td>Bohr radius, in m</td>
+            </tr>
+            <tr>
+                <td><code>Ry_inf</code></td>
+                <td>R<sub>&infin;</sub> = m<sub>e</sub>e<sup>2</sup>/(64&pi;<sup>3</sup>&varepsilon;<sup>2</sup>&hbar;<sup>3</sup>c) = 1.0973731568527 &centerdot; 10<sup>7</sup></td>
+                <td>Rydberg constant, in 1/m</td>
+            </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
+
+            <tr>
+                <td><code>M_S</code></td>
+                <td>1.9891 &centerdot; 10<sup>30</sup></td>
+                <td>Solar mass, in kg</td>
+            </tr>
+            <tr>
+                <td><code>L_S</code></td>
+                <td>3.839 &centerdot; 10<sup>26</sup></td>
+                <td>Solar luminosity, in W</td>
+            </tr>
+            <tr>
+                <td><code>R_S</code></td>
+                <td>6.95508 &centerdot; 10<sup>8</sup></td>
+                <td>Solar radius, in m</td>
+            </tr>
+            <tr>
+                <td><code>S_S</code></td>
+                <td>1365</td>
+                <td>Solar irradiance, in W/m<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td><code>Teff_S</code></td>
+                <td>5777</td>
+                <td>Solar effective temperature, in K</td>
+            </tr>
+            <tr>
+                <td><code>M_T</code></td>
+                <td>5.9736 &centerdot; 10<sup>24</sup></td>
+                <td>Earth mass, in kg</td>
+            </tr>
+            <tr>
+                <td><code>R_T</code></td>
+                <td>6.378136 &centerdot; 10<sup>6</sup></td>
+                <td>Earth radius, in m</td>
+            </tr>
+            <tr>
+                <td><code>AU</code></td>
+                <td>1.4959787066 &centerdot; 10<sup>11</sup></td>
+                <td>Astronomical unit (average Earth-Sun distance), in m</td>
+            </tr>
+            <tr>
+                <td><code>ly</code></td>
+                <td>9.460730472 &centerdot; 10<sup>15</sup></td>
+                <td>Light-year (distance covered by light in a vacuum in a Julia year), in m</td>
+            </tr>
+            <tr>
+                <td><code>pc</code></td>
+                <td>3.0856776 &centerdot; 10<sup>16</sup></td>
+                <td>Parsec (distance of an object with annual parallax of 1 arcsec), in m</td>
+            </tr>
+            <tr>
+                <td><code>day</code></td>
+                <td>86400</td>
+                <td>Standard solar day, in s</td>
+            </tr>
+            <tr>
+                <td><code>yr_tr</code></td>
+                <td>86400  &centerdot;  365.2421897 = 3.155692519008 &centerdot; 10<sup>7</sup></td>
+                <td>Tropical year, in s</td>
+            </tr>
+            <tr>
+                <td><code>yr_sid</code></td>
+                <td>86400  &centerdot;  365.256308 = 3.15581450112 &centerdot; 10<sup>7</sup></td>
+                <td>Sidereal year, in s</td>
+            </tr>
+            <tr>
+                <td><code>yr_J</code></td>
+                <td>86400  &centerdot;  365.25 = 3.15576 &centerdot; 10<sup>7</sup></td>
+                <td>Mean Julian year, in s</td>
+            </tr>
+            <tr>
+                <td><code>yr_Gr</code></td>
+                <td>86400  &centerdot;  365.2425 = 3.1556952 &centerdot; 10<sup>7</sup></td>
+                <td>Mean Gregorian year, in s</td>
             </tr>
         </tbody>
     </table>
@@ -219,18 +375,20 @@
             <tr>
                 <td><code>median(x1, x2, ...)</code></td>
                 <td>all real</td>
-                <td>Median (central) element</td>
+                <td>Median (central element)</td>
             </tr>
             <tr>
                 <td><code>gcd(x1, x2, ...)</code></td>
-                <td>all integer</td>
+                <td>all integers</td>
                 <td>Greatest common divisor</td>
             </tr>
             <tr>
                 <td><code>lcm(x1, x2, ...)</code></td>
-                <td>all integer</td>
+                <td>all integers</td>
                 <td>Least common multiple</td>
             </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
             <tr>
                 <td><code>sqrt(x)</code></td>
                 <td>complex</td>
@@ -249,43 +407,55 @@
             <tr>
                 <td><code>log(x)</code></td>
                 <td>complex</td>
-                <td>Base-10 logarithm (principal value)</td>
+                <td>Base 10 logarithm (principal value)</td>
             </tr>
             <tr>
                 <td><code>abs(x)</code></td>
                 <td>complex</td>
-                <td>Absolute value (or norm for complex numbers)</td>
+                <td>Absolute value (or norm of complex number)</td>
             </tr>
             <tr>
                 <td><code>arg(x)</code></td>
                 <td>complex</td>
-                <td>Argument of complex number</td>
+                <td>Argument (phase angle) of a complex number</td>
             </tr>
             <tr>
                 <td><code>conj(x)</code></td>
                 <td>complex</td>
-                <td>Conjugate of complex number</td>
+                <td>Conjugate of a complex number</td>
             </tr>
             <tr>
                 <td><code>sign(x)</code></td>
                 <td>complex</td>
-                <td>Sign of real number; for complex number, returns the number normalized (= z/|z|)</td>
+                <td>Signum of a real number; for a complex argument, returns the normalized number (= z/|z|)</td>
             </tr>
             <tr>
                 <td><code>floor(x)</code></td>
                 <td>complex</td>
-                <td>Rounds down to nearest (Gaussian) integer towards -&infin;</td>
+                <td>Round down to nearest (Gaussian) integer, toward -&infin;</td>
             </tr>
             <tr>
                 <td><code>ceil(x)</code></td>
                 <td>complex</td>
-                <td>Rounds up to nearest (Gaussian) integer towards +&infin;</td>
+                <td>Round up to nearest (Gaussian) integer, toward +&infin;</td>
+            </tr>
+            <tr>
+                <td><code>int_inf(x)</code></td>
+                <td>complex</td>
+                <td>Round down to nearest (Gaussian) integer, toward 0</td>
+            </tr>
+            <tr>
+                <td><code>int_sup(x)</code></td>
+                <td>complex</td>
+                <td>Round up to nearest (Gaussian) integer, toward 0</td>
             </tr>
             <tr>
                 <td><code>round(x)</code></td>
                 <td>complex</td>
-                <td>Rounds to nearest (Gaussian) integer</td>
+                <td>Round to nearest (Gaussian) integer</td>
             </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
             <tr>
                 <td><code>sin(x)</code></td>
                 <td>complex</td>
@@ -406,6 +576,8 @@
                 <td>complex</td>
                 <td>Inverse hyperbolic cosecant</td>
             </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
             <tr>
                 <td><code>fact(n)</code></td>
                 <td>integer</td>
@@ -414,7 +586,7 @@
             <tr>
                 <td><code>dfact(n)</code></td>
                 <td>integer</td>
-                <td>Double factorial (product of previous integers with same parity as <i>n</i>)</td>
+                <td>Double factorial (product of integers up to <i>n</i> and with the same parity as <i>n</i>)</td>
             </tr>
             <tr>
                 <td><code>binom(n, k)</code></td>
@@ -424,32 +596,30 @@
             <tr>
                 <td><code>rnd(a, b)</code></td>
                 <td>complex, complex</td>
-                <td>Random number uniformly distributed between a (included) and b (not included).<br>With complex
-                    parameters, real and imaginary parts are generated separately between the respective parts of the
-                    boundaries.<br>If a is omitted, it is assumed = 0.<br>If b is also omitted, it is assumed = 1.</td>
+                <td>(Pseudo-)random number uniformly distributed between <i>a</i> (included) and <i>b</i> (excluded).<br>With complex arguments, the real and imaginary part are generated independently between the respective parts of the arguments.<br>If <i>a</i> is omitted, it is assumed = 0.<br>If <i>b</i> is also omitted, it is assumed = 1.</td>
             </tr>
             <tr>
                 <td><code>rndint(a, b)</code></td>
                 <td>real, real</td>
-                <td>Random integer uniformly distributed between a (included if integer) and b (not included). Imaginary
-                    parts ignored.<br>If a is omitted, it is assumed = 0.<br>If b is also omitted, it is assumed = 1.
-                </td>
+                <td>(Pseudo-)random integer uniformly distributed between <i>a</i> (included) and <i>b</i> (excluded). Imaginary parts are ignored.<br>If <i>a</i> is omitted, it is assumed = 0.<br>If <i>b</i> is also omitted, it is assumed = 1.</td>
             </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
             <tr>
                 <td><code>gamma(x)</code></td>
                 <td>real</td>
-                <td>Gamma function for real argument (approximated)</td>
+                <td>Gamma function with real argument (approximated)</td>
             </tr>
             <tr>
                 <td><code>lambertW0(x)</code></td>
                 <td>real</td>
-                <td>Principal branch of Lambert W function (inverse of x e<sup>x</sup>) for real argument (approximated)
+                <td>Principal branch of Lambert's W function (inverse of x e<sup>x</sup>) with real argument (approximated)
                 </td>
             </tr>
             <tr>
                 <td><code>lambertW1(x)</code></td>
                 <td>real</td>
-                <td>Secondary (-1) branch of Lambert W function for real argument (approximated)</td>
+                <td>Secondary (-1) branch of Lambert's W function (inverse of x e<sup>x</sup>) with real argument (approximated)</td>
             </tr>
             <tr>
                 <td><code>erf(x)</code></td>

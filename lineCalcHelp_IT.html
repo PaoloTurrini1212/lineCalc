@@ -24,6 +24,7 @@
         td {
             padding: 5px;
             border-bottom: 1px solid gray;
+            border-left: 1px solid gray;
             text-align: left;
         }
     </style>
@@ -34,88 +35,40 @@
     <a href="./lineCalcHelp_EN.html">English version</a>
     <h2>Informazioni</h2>
     <p>LineCalc 0.2 (beta) - compilato con Java 14</p>
-    <p>LineCalc è una semplice calcolatrice a riga di comando. Include un sistema basico di gestione delle variabili e riconosce numerose funzioni matematiche. Il programma è pensato per calcoli veloci e come ausilio nei problemi scolastici.</p>
+    <p>LineCalc è una semplice calcolatrice a riga di comando. Include un semplice sistema di gestione delle variabili e riconosce numerose funzioni matematiche. Il programma è pensato per calcoli veloci e come ausilio nei problemi scolastici.</p>
     <p>&Egrave; progettato come applicazione Java indipendente.</p>
     <h2>Come si usa</h2>
     <p>Basta digitare l'espressione matematica che si vuole calcolare nella riga di comando (il campo testuale in alto) e premere Invio. Il risultato è visibile nel campo subito sotto alla riga di comando.</p>
     <p>Il programma supporta un'ampia gamma di funzioni oltre alle operazioni di base. L'elenco completo è riportato sotto.</p>
-    <p>Le moltiplicazioni devono essere scritte esplicitamente con <code>*</code> : inserendo uno spazio fra due numeri/variabili/costanti darà un errore.</p>
-    <p>I numeri complessi sono supportati; vanno inseriti come somma della parte reale e immaginaria, usando la costante predefinita <code>I</code> (ad es. <code>2+3*I</code>)</p>
-    <p>Gli argomenti delle funzioni vanno racchiusi fra parentesi tonde <code>()</code> e separati fra loro da virgole <code>,</code> . I nomi delle funzioni iniziano con una lettera minuscola.</p>
+    <p>Le moltiplicazioni devono essere scritte esplicitamente con <code>*</code> : inserire uno spazio fra due numeri/variabili/costanti darà un errore.</p>
+    <p>I numeri complessi sono supportati; vanno inseriti come somma della parte reale e immaginaria, usando la costante predefinita <code>i</code> (ad es. <code>2+3*i</code>)</p>
+    <p>Gli argomenti delle funzioni vanno racchiusi fra parentesi tonde <code>()</code> e separati fra loro da virgole <code>,</code> .</p>
     <h3>Gestione delle variabili</h3>
     <p>
         Il programma può gestire le variabili. L'attuale lista di variabili è visualizzata nella tabella sotto i tre pulsanti.
-        <b>Nota:</b> ci sono anche alcune costanti predefinite (like &pi; or <i>e</i>), che però non sono indicate nella lista.
-        Variabili e costanti possono essere inserite in un'espressione.
+        <b>Nota:</b> le costanti predefinite (come &pi; o <i>e</i>) non sono visibili nella schermata del programma, ma sono elencate in questa pagina di aiuto. Variabili e costanti possono essere inserite in un'espressione.
     <ul>
-        <li>
-            Il pulsante "+" crea una variable inizializzata col valore attuale dell'espressione (se nessuna espressione è ancora stata calcolata, il pulsante non fa nulla). Comparirà una finestra popup per inserire il nome della variabile. Il nome deve seguire alcune regole:
+        <li> <img src="addVarBtn.png" alt="(+)">
+            Crea una variable inizializzata col valore attuale dell'espressione (se nessuna espressione è ancora stata calcolata, il pulsante non fa nulla). Comparirà una finestra popup per inserire il nome della variabile. Il nome deve seguire alcune regole:
             <ul>
                 <li>Dev'essere univoco. Non può appartenere già ad un'altra variabile, né ad una costante predefinita.</li>
-                <li>Deve iniziare con una lettera maiuscola.</li>
+                <li>Deve iniziare con una lettera (maiuscola o minuscola).</li>
                 <li>Deve contenere solo lettere (maiuscole o minuscole), cifre (0-9) o trattini bassi ( _ ).</li>
             </ul>
         </li>
-        <li>
-            Il pulsante "-" elimina la variabile selezionata dall'elenco (se nessuna variabile è selezionata, il pulsante non fa nulla). Una variabile eliminata non può più essere usata in un'espressione.
+        <li> <img src="removeVarBtn.png" alt="(-)">
+            Elimina la variabile selezionata dall'elenco (se nessuna variabile è selezionata, il pulsante non fa nulla). Una variabile eliminata non può più essere usata in un'espressione.
         </li>
-        <li>
-            Il pulsante "&downarrow;" assegna il valore attuale dell'espressione alla variabile selezionata, sostituendolo al valore precedente (se nessuna variabile è selezionata, il pulsante non fa nulla).
+        <li> <img src="assignVarBtn.png" alt="(&downarrow;)">
+            Assegna il valore attuale dell'espressione alla variabile selezionata, sostituendolo al valore precedente (se nessuna variabile è selezionata, il pulsante non fa nulla).
         </li>
     </ul>
     </p>
-    <h2>Costanti</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Valore</th>
-                <th>Descrizione</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code>I</code></td>
-                <td>&Sqrt;(-1) = i</td>
-                <td>Unità imaginaria</td>
-            </tr>
-            <tr>
-                <td><code>E</code></td>
-                <td>2.718281828459045</td>
-                <td>Base dei logaritmi naturali</td>
-            </tr>
-            <tr>
-                <td><code>PI</code></td>
-                <td>3.141592653589793</td>
-                <td>Rapporto fra la circonferenza di un cerchio e il suo diametro</td>
-            </tr>
-            <tr>
-                <td><code>TAU</code></td>
-                <td>2 &pi; = 6.283185307179586</td>
-                <td>Rapporto fra la circonferenza di un cerchio e il suo raggio</td>
-            </tr>
-            <tr>
-                <td><code>DEG</code></td>
-                <td>&pi;/180 = 0.017453292519943295</td>
-                <td>Fattore di conversione da radianti a gradi</td>
-            </tr>
-            <tr>
-                <td><code>GRAD</code></td>
-                <td>&pi;/200 = 0.015707963267948967</td>
-                <td>Fattore di conversione da radianti a gradi centesimali (1/100esimo di angolo retto)</td>
-            </tr>
-            <tr>
-                <td><code>PHI</code></td>
-                <td>(1+&Sqrt;5) / 2 = 1.618033988749895</td>
-                <td>Rapporto aureo (soluzione positiva di x<sup>2</sup> = x + 1)</td>
-            </tr>
-            <tr>
-                <td><code>GAMMA_EM</code></td>
-                <td>0.5772156649015329</td>
-                <td>Constante di Eulero-Mascheroni</td>
-            </tr>
-        </tbody>
-    </table>
+
+    <h2>Fattorizzazione</h2>
+    <p>
+        Il pulsante "Fattorizza" apre una finestra popup; inserendo un numero intero positivo e premendo il pulsante "Calcola" (o il tasto Invio) sarà visualizzata la scomposizione del numero in fattori primi, ognuno con la sua molteplicità. Chiudere la finestra per tornare alla schermata principale.
+    </p>
 
     <h2>Operatori</h2>
     <table>
@@ -157,6 +110,219 @@
             <tr>
                 <td><code>-</code> (unario)</td>
                 <td>Negativo (inverti segno)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Costanti</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Valore</th>
+                <th>Descrizione</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>i</code></td>
+                <td>&Sqrt;(-1) = i</td>
+                <td>Unità imaginaria</td>
+            </tr>
+            <tr>
+                <td><code>e</code></td>
+                <td>2.718281828459045</td>
+                <td>Base dei logaritmi naturali</td>
+            </tr>
+            <tr>
+                <td><code>pi</code></td>
+                <td>&pi; = 3.141592653589793</td>
+                <td>Rapporto fra la circonferenza di un cerchio e il suo diametro</td>
+            </tr>
+            <tr>
+                <td><code>tau</code></td>
+                <td>&tau; = 2 &pi; = 6.283185307179586</td>
+                <td>Rapporto fra la circonferenza di un cerchio e il suo raggio</td>
+            </tr>
+            <tr>
+                <td><code>deg</code></td>
+                <td>&pi;/180 = 0.017453292519943295</td>
+                <td>Fattore di conversione da radianti a gradi</td>
+            </tr>
+            <tr>
+                <td><code>grad</code></td>
+                <td>&pi;/200 = 0.015707963267948967</td>
+                <td>Fattore di conversione da radianti a gradi centesimali (1/100esimo di angolo retto)</td>
+            </tr>
+            <tr>
+                <td><code>phi</code></td>
+                <td>&phi; = (1+&Sqrt;5) / 2 = 1.618033988749895</td>
+                <td>Rapporto aureo (soluzione positiva di x<sup>2</sup> = x + 1)</td>
+            </tr>
+            <tr>
+                <td><code>gamma_EM</code></td>
+                <td>0.5772156649015329</td>
+                <td>Constante di Eulero-Mascheroni</td>
+            </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
+            <tr>
+                <td><code>G</code></td>
+                <td>6.67428 &centerdot; 10<sup>-11</sup></td>
+                <td>Costante gravitazionale, in m<sup>3</sup>/(kg s<sup>2</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>c_L</code></td>
+                <td>2.99792458 &centerdot; 10<sup>8</sup></td>
+                <td>Velocità della luce nel vuoto, in m/s</td>
+            </tr>
+            <tr>
+                <td><code>mu0</code></td>
+                <td>&mu;<sub>0</sub> = 4&pi; &centerdot; 10<sup>-7</sup> = 1.2566370614359173 &centerdot; 10<sup>-6</sup></td>
+                <td>Permeabilità magnetica del vuoto, in N/A<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td><code>eps0</code></td>
+                <td>&varepsilon;<sub>0</sub> = 1/(&mu;<sub>0</sub>c<sup>2</sup>) = 8.854187817620389 &centerdot; 10<sup>-12</sup></td>
+                <td>Permittività elettrica del vuoto, in F/m</td>
+            </tr>
+            <tr>
+                <td><code>eV</code></td>
+                <td>1.602176487 &centerdot; 10<sup>-19</sup></td>
+                <td>Elettronvolt (in J); corrisponde alla carica dell'elettrone (in C)</td>
+            </tr>
+            <tr>
+                <td><code>h</code></td>
+                <td>6.62606896 &centerdot; 10<sup>-34</sup></td>
+                <td>Costante di Planck, in J s</td>
+            </tr>
+            <tr>
+                <td><code>hbar</code></td>
+                <td>&hbar; = h/(2 &pi;) = 1.054571628251774 &centerdot; 10<sup>-34</sup></td>
+                <td>Costante ridotta di Planck, in J s</td>
+            </tr>
+            <tr>
+                <td><code>k_B</code></td>
+                <td>1.3806504 &centerdot; 10<sup>-23</sup></td>
+                <td>Costante di Boltzmann, in J/K</td>
+            </tr>
+            <tr>
+                <td><code>sigma_SB</code></td>
+                <td>&sigma; = 2 &pi;<sup>5</sup>k<sup>4</sup>/(15 c<sup>2</sup>h<sup>3</sup>) = 5.670400 &centerdot; 10<sup>-8</sup></td>
+                <td>Costante di Stefan-Boltzmann, in W/(m<sup>2</sup> K<sup>4</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>a_rad</code></td>
+                <td>a = 4&sigma;/c = 7.565767 &centerdot; 10<sup>-16</sup></td>
+                <td>Costante radiativa, in J/(m<sup>3</sup> K<sup>4</sup>)</td>
+            </tr>
+            <tr>
+                <td><code>m_e</code></td>
+                <td>9.10938215 &centerdot; 10<sup>-31</sup></td>
+                <td>Massa dell'elettrone, in kg</td>
+            </tr>
+            <tr>
+                <td><code>m_H</code></td>
+                <td>1.673532499 &centerdot; 10<sup>-27</sup></td>
+                <td>Massa dell'atomo di idrogeno, in kg</td>
+            </tr>
+            <tr>
+                <td><code>N_A</code></td>
+                <td>6.02214179 &centerdot; 10<sup>23</sup></td>
+                <td>Numero di Avogadro</td>
+            </tr>
+            <tr>
+                <td><code>R_gas</code></td>
+                <td>N<sub>A</sub> k = 8.314472</td>
+                <td>Costante dei gas ideali, in J/(mol K)</td>
+            </tr>
+            <tr>
+                <td><code>a0_inf</code></td>
+                <td>a<sub>0,&infin;</sub> = 4&pi;&varepsilon;<sub>0</sub>&hbar;<sup>2</sup>/(m<sub>e</sub>e<sup>2</sup>) = 5.2917720859 &centerdot; 10<sup>-11</sup></td>
+                <td>Raggio di Bohr, in m</td>
+            </tr>
+            <tr>
+                <td><code>Ry_inf</code></td>
+                <td>R<sub>&infin;</sub> = m<sub>e</sub>e<sup>2</sup>/(64&pi;<sup>3</sup>&varepsilon;<sup>2</sup>&hbar;<sup>3</sup>c) = 1.0973731568527 &centerdot; 10<sup>7</sup></td>
+                <td>Costante di Rydberg, in 1/m</td>
+            </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
+
+            <tr>
+                <td><code>M_S</code></td>
+                <td>1.9891 &centerdot; 10<sup>30</sup></td>
+                <td>Massa solare, in kg</td>
+            </tr>
+            <tr>
+                <td><code>L_S</code></td>
+                <td>3.839 &centerdot; 10<sup>26</sup></td>
+                <td>Luminosità solare, in W</td>
+            </tr>
+            <tr>
+                <td><code>R_S</code></td>
+                <td>6.95508 &centerdot; 10<sup>8</sup></td>
+                <td>Raggio solare, in m</td>
+            </tr>
+            <tr>
+                <td><code>S_S</code></td>
+                <td>1365</td>
+                <td>Irraggiamento solare, in W/m<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td><code>Teff_S</code></td>
+                <td>5777</td>
+                <td>Temperatura efficace solare, in K</td>
+            </tr>
+            <tr>
+                <td><code>M_T</code></td>
+                <td>5.9736 &centerdot; 10<sup>24</sup></td>
+                <td>Massa della Terra, in kg</td>
+            </tr>
+            <tr>
+                <td><code>R_T</code></td>
+                <td>6.378136 &centerdot; 10<sup>6</sup></td>
+                <td>Raggio della Terra, in m</td>
+            </tr>
+            <tr>
+                <td><code>AU</code></td>
+                <td>1.4959787066 &centerdot; 10<sup>11</sup></td>
+                <td>Unità astronomica (distanza media Terra-Sole), in m</td>
+            </tr>
+            <tr>
+                <td><code>ly</code></td>
+                <td>9.460730472 &centerdot; 10<sup>15</sup></td>
+                <td>Anno-luce (distanza percorsa dalla luce nel vuoto in un anno giuliano), in m</td>
+            </tr>
+            <tr>
+                <td><code>pc</code></td>
+                <td>3.0856776 &centerdot; 10<sup>16</sup></td>
+                <td>Parsec (distanza di un oggetto con parallasse annua di 1 arcsec), in m</td>
+            </tr>
+            <tr>
+                <td><code>day</code></td>
+                <td>86400</td>
+                <td>Giorno solare standard, in s</td>
+            </tr>
+            <tr>
+                <td><code>yr_tr</code></td>
+                <td>86400  &centerdot;  365.2421897 = 3.155692519008 &centerdot; 10<sup>7</sup></td>
+                <td>Anno tropico, in s</td>
+            </tr>
+            <tr>
+                <td><code>yr_sid</code></td>
+                <td>86400  &centerdot;  365.256308 = 3.15581450112 &centerdot; 10<sup>7</sup></td>
+                <td>Anno siderale, in s</td>
+            </tr>
+            <tr>
+                <td><code>yr_J</code></td>
+                <td>86400  &centerdot;  365.25 = 3.15576 &centerdot; 10<sup>7</sup></td>
+                <td>Anno giuliano medio, in s</td>
+            </tr>
+            <tr>
+                <td><code>yr_Gr</code></td>
+                <td>86400  &centerdot;  365.2425 = 3.1556952 &centerdot; 10<sup>7</sup></td>
+                <td>Anno gregoriano medio, in s</td>
             </tr>
         </tbody>
     </table>
@@ -221,6 +387,8 @@
                 <td>tutti interi</td>
                 <td>Minimo comune multiplo</td>
             </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
             <tr>
                 <td><code>sqrt(x)</code></td>
                 <td>complesso</td>
@@ -249,7 +417,7 @@
             <tr>
                 <td><code>arg(x)</code></td>
                 <td>complesso</td>
-                <td>Argomento (angolo) di un numero complesso</td>
+                <td>Argomento (angolo di fase) di un numero complesso</td>
             </tr>
             <tr>
                 <td><code>conj(x)</code></td>
@@ -259,7 +427,7 @@
             <tr>
                 <td><code>sign(x)</code></td>
                 <td>complesso</td>
-                <td>Segno di un numero reale; per un numero complesso, restituisce il numero normazillato (= z/|z|)</td>
+                <td>Segno di un numero reale; per un numero complesso, restituisce il numero normalizzato (= z/|z|)</td>
             </tr>
             <tr>
                 <td><code>floor(x)</code></td>
@@ -272,10 +440,22 @@
                 <td>Arrotonda all'intero (Gaussiano) superiore, verso +&infin;</td>
             </tr>
             <tr>
+                <td><code>int_inf(x)</code></td>
+                <td>complesso</td>
+                <td>Arrotonda all'intero (Gaussiano) inferiore, verso 0</td>
+            </tr>
+            <tr>
+                <td><code>int_sup(x)</code></td>
+                <td>complesso</td>
+                <td>Arrotonda all'intero (Gaussiano) superiore, in direzione opposta a 0</td>
+            </tr>
+            <tr>
                 <td><code>round(x)</code></td>
                 <td>complesso</td>
                 <td>Arrotonda all'intero (Gaussiano) più vicino</td>
             </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
             <tr>
                 <td><code>sin(x)</code></td>
                 <td>complesso</td>
@@ -396,6 +576,8 @@
                 <td>complesso</td>
                 <td>Cosecante iperbolica inversa</td>
             </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
             <tr>
                 <td><code>fact(n)</code></td>
                 <td>intero</td>
@@ -404,7 +586,7 @@
             <tr>
                 <td><code>dfact(n)</code></td>
                 <td>intero</td>
-                <td>Fattoriale doppio (prodotto degli interi precedenti aventi la stessa parità di <i>n</i>)</td>
+                <td>Fattoriale doppio (prodotto degli interi fino a <i>n</i> e aventi la stessa parità di <i>n</i>)</td>
             </tr>
             <tr>
                 <td><code>binom(n, k)</code></td>
@@ -414,13 +596,15 @@
             <tr>
                 <td><code>rnd(a, b)</code></td>
                 <td>complesso, complesso</td>
-                <td>Numero casuale uniformemente distribuito fra a (incluso) and b (escluso).<br>Con parametri complessi, le parti reale e immaginaria sono generate indipendentemente fra le rispettive parti degli argomenti.<br>Se a è omesso, si assume = 0.<br>Se anche b è omesso, si assume = 1.</td>
+                <td>Numero (pseudo-)casuale uniformemente distribuito fra a (incluso) and b (escluso).<br>Con parametri complessi, le parti reale e immaginaria sono generate indipendentemente fra le rispettive parti degli argomenti.<br>Se a è omesso, si assume = 0.<br>Se anche b è omesso, si assume = 1.</td>
             </tr>
             <tr>
                 <td><code>rndint(a, b)</code></td>
                 <td>reale, reale</td>
-                <td>Intero casuale uniformemente distribuito fra a (incluso se intero) e b (escluso). Si ignorano le parti immaginarie.<br>Se a è omesso, si assume = 0.<br>Se anche b è omesso, si assume = 1.</td>
+                <td>Intero (pseudo-)casuale uniformemente distribuito fra a (incluso se intero) e b (escluso). Si ignorano le parti immaginarie.<br>Se a è omesso, si assume = 0.<br>Se anche b è omesso, si assume = 1.</td>
             </tr>
+
+            <tr><td colspan="3"></td></tr> <!-- separatore -->
             <tr>
                 <td><code>gamma(x)</code></td>
                 <td>reale</td>

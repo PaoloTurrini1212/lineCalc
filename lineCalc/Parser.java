@@ -43,6 +43,9 @@ public class Parser {
 	}
 
 	Cplx parse(String stringToParse) {
+		if (stringToParse.isEmpty() || stringToParse.isBlank()) {
+			return null;
+		}
 		str = stringToParse;
 		nextChar();
 		Cplx x = parseExpression();
@@ -114,33 +117,31 @@ public class Parser {
 				nextChar();
 			}
 			x = new Cplx(Double.parseDouble(str.substring(startPos, this.pos)));
-		} else if (ch >= 'a' && ch <= 'z') { // functions
+		} else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) { // functions
 			while ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9') || ch == '_')
 				nextChar();
-			String func = str.substring(startPos, this.pos);
-			if (!funcMap.containsKey(func))
-				throw new RuntimeException("At " + pos + " (func) Unknown function: " + func);
-			ArrayList<Cplx> args = new ArrayList<Cplx>();
-			if (ch == '(')
-				args = parseArgs();
-			else
-				args.add(parseFactor());
-			Function<ArrayList<Cplx>, Cplx> f = funcMap.get(func);
-			try {
-				x = (Cplx) f.apply(args);
-			} catch (RuntimeException ex) {
-				throw new RuntimeException("At " + pos + " (func) " + ex.getLocalizedMessage());
+
+			String name = str.substring(startPos, this.pos);
+			if (funcMap.containsKey(name)) {
+				ArrayList<Cplx> args = new ArrayList<Cplx>();
+				if (ch == '(')
+					args = parseArgs();
+				else
+					args.add(parseFactor());
+				Function<ArrayList<Cplx>, Cplx> f = funcMap.get(name);
+				try {
+					x = (Cplx) f.apply(args);
+				} catch (RuntimeException ex) {
+					throw new RuntimeException("At " + pos + " (func) " + ex.getLocalizedMessage());
+				}
+			} else if (constMap.containsKey(name)) {
+				x = constMap.get(name);
+			} else if (tm.getData().containsKey(name)) {
+				x = tm.getData().get(name);
+			} else {
+				throw new RuntimeException("At " + pos + " (func) Unknown constant/function: " + name);
 			}
-		} else if (ch >= 'A' && ch <= 'Z') {
-			while ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') || ch == '_')
-				nextChar();
-			String constant = str.substring(startPos, this.pos);
-			if (constMap.containsKey(constant))
-				x = constMap.get(constant);
-			else if (tm.getData().containsKey(constant))
-				x = tm.getData().get(constant);
-			else
-				throw new RuntimeException("At " + pos + " (const) Unknown constant: " + constant);
+
 		} else {
 			throw new RuntimeException("At " + pos + " (factor) Unexpected: " + (char) ch);
 		}

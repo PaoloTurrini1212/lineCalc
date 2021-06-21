@@ -102,6 +102,18 @@ public class Cplx {
 	public Cplx ceil() {
 		return new Cplx(Math.ceil(real), Math.ceil(imag));
 	}
+	
+	public Cplx int_sup() {
+		double rr = real>=0 ? Math.floor(real) : Math.ceil(real);
+		double ii = imag>=0 ? Math.floor(imag) : Math.ceil(imag);
+		return new Cplx(rr, ii);
+	}
+	
+	public Cplx int_inf() {
+		double rr = real>=0 ? Math.ceil(real) : Math.floor(real);
+		double ii = imag>=0 ? Math.ceil(imag) : Math.floor(imag);
+		return new Cplx(rr, ii);
+	}
 
 	public Cplx round() {
 		return new Cplx(Math.round(real), Math.round(imag));

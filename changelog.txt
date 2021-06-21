@@ -1,0 +1,8 @@
+0.2.1
+First working version.
+
+0.2.2
+- Removed the upper/lowercase limitation for constant/function names. Now all functions, built-in constants and user-defined constants may start with upper- or lowercase letters.
+- Added some physical constants and some rounding functions.
+- Updated help page.
+- Slightly changed color scheme.
